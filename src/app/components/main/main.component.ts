@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
 
+  playMusic() {
+    let audio = new Audio();
+    audio.src = '../../../assets/music/Aatrox.mp3'
+    audio.load();
+    audio.play();
+  }
 }

@@ -1,14 +1,13 @@
 <body>
-  <button mat-button (click)="toggleMusic()" color="primary">Primary</button>
   <div class="button" onclick="this.classList.toggle('active')" (click)="toggleMusic()">
-    <div class="fondo" x="0" y="0" width="200" height="200"></div>
-    <div class="icono" width="200" height="200">
-      <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
-      <div class="parte derecha" x="0" y="0" width="200" height="200" fill="#fff"></div>
+    <div class="bottom" x="0" y="0" width="200" height="200"></div>
+    <div class="icon" width="200" height="200">
+      <div class="middle left" x="0" y="0" width="200" height="200" fill="#fff"></div>
+      <div class="middle right" x="0" y="0" width="200" height="200" fill="#fff"></div>
     </div>
-    <div class="puntero"></div>
+    <div class="pointer"></div>
   </div>
-  <p-dropdown [options]="championsLocal" [(ngModel)]="selectedChampion" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country">
+  <p-dropdown (onChange)="checkIfMatches()" [options]="championsLocal" [virtualScroll]="true" [virtualScrollItemSize]="38" [(ngModel)]="selectedChampion" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Champion">
     <ng-template pTemplate="selectedItem">
         <div class="flex align-items-center gap-2" *ngIf="selectedChampion">
             <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px"/> -->

@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.fondo {
+.bottom {
   background: #f4471f;
   border-radius: 50%;
   box-shadow: 0 1px 2.2px rgba(0, 0, 0, 0.051),
@@ -22,22 +22,22 @@ body {
   position: absolute;
   width: 100px;
 }
-.button:active .fondo {
+.button:active .bottom {
   background: #e93c15;
 }
-.icono {
+.icon {
   height: 200px;
   transform: rotate(-120deg);
   transition: transform 500ms;
   width: 200px;
 }
-.parte {
+.middle {
   background: white;
   height: 200px;
   position: absolute;
   width: 200px;
 }
-.izquierda {
+.left {
   clip-path: polygon(
     43.77666% 55.85251%,
     43.77874% 55.46331%,
@@ -106,7 +106,7 @@ body {
   );
   transition: clip-path 500ms;
 }
-.derecha {
+.right {
   clip-path: polygon(
     43.77666% 43.83035%,
     43.77874% 44.21955%,
@@ -175,7 +175,7 @@ body {
   );
   transition: clip-path 500ms;
 }
-.puntero {
+.pointer {
   border-radius: 50%;
   cursor: pointer;
   height: 100px;
@@ -183,10 +183,10 @@ body {
   -webkit-tap-highlight-color: transparent;
   width: 100px;
 }
-.active .icono {
+.active .icon {
   transform: rotate(-90deg);
 }
-.active .izquierda {
+.active .left {
   clip-path: polygon(
     56.42249% 57.01763%,
     54.93283% 57.0175%,
@@ -254,7 +254,7 @@ body {
     56.87342% 56.99471%
   );
 }
-.active .derecha {
+.active .right {
   clip-path: polygon(
     56.42249% 42.44625%,
     54.93283% 42.44637%,

@@ -15,8 +15,8 @@ export class MainComponent {
   recentChamps:Champion[] = [];
   audio = new Audio();
   isPlaying:boolean = false;
-  championsLocal:Champion[]= champions;
-  myControl = new FormControl<string | Champion>('');
+  championsLocal:Champion[] = champions;
+  selectedChampion:Champion;
 
 
   constructor(public utils: UtilsService) {
@@ -24,21 +24,16 @@ export class MainComponent {
   }
 
   toggleMusic() {
-    this.isPlaying = !this.isPlaying
     if(!this.isPlaying) {
       var champNum = this.utils.randomIntFromInterval(1,champions.length);
       let src = this.path+champions[champNum-1].name+this.ext
-      console.log(src)
       this.audio.src = src
       this.audio.load();
       this.audio.play();
     } else {
       this.audio.pause();
     }
-
+    this.isPlaying = !this.isPlaying
   }
 
-  displayFn(champion): string {
-    return champion && champion.name ? champion.name : '';
-  }
 }

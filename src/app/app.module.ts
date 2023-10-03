@@ -7,6 +7,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 
+import { DropdownModule } from 'primeng/dropdown';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,11 +16,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MainComponent } from './components/main/main.component';
+import { PlaybuttonComponent } from './components/parts/playbutton/playbutton.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    PlaybuttonComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,7 @@ import { MainComponent } from './components/main/main.component';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    DropdownModule,
     FormsModule,
     ReactiveFormsModule
   ],

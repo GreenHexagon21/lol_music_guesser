@@ -1,4 +1,26 @@
-<p>main works!</p>
-<button mat-button (click)="toggleMusic()" color="primary">Primary</button>
+<body>
+  <button mat-button (click)="toggleMusic()" color="primary">Primary</button>
+  <div class="button" onclick="this.classList.toggle('active')" (click)="toggleMusic()">
+    <div class="fondo" x="0" y="0" width="200" height="200"></div>
+    <div class="icono" width="200" height="200">
+      <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
+      <div class="parte derecha" x="0" y="0" width="200" height="200" fill="#fff"></div>
+    </div>
+    <div class="puntero"></div>
+  </div>
+  <p-dropdown [options]="championsLocal" [(ngModel)]="selectedChampion" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country">
+    <ng-template pTemplate="selectedItem">
+        <div class="flex align-items-center gap-2" *ngIf="selectedChampion">
+            <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px"/> -->
+            <div>{{ selectedChampion.name }}</div>
+        </div>
+    </ng-template>
+    <ng-template let-champion pTemplate="item">
+        <div class="flex align-items-center gap-2">
+            <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px"/> -->
+            <div>{{ champion.name }}</div>
+        </div>
+    </ng-template>
+  </p-dropdown>
+</body>
 
-<p>a</p>

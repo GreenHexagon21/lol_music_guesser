@@ -1,4 +1,6 @@
-export const champions = [
+import { Champion } from "src/app/shared/champion";
+
+export const champions : Champion[] = [
   {
     name:"Briar",
     picture:"",

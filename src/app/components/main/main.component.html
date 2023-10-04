@@ -1,25 +1,62 @@
 <body>
-  <div class="button" onclick="this.classList.toggle('active')" (click)="toggleMusic()">
-    <div class="bottom" x="0" y="0" width="200" height="200"></div>
-    <div class="icon" width="200" height="200">
-      <div class="middle left" x="0" y="0" width="200" height="200" fill="#fff"></div>
-      <div class="middle right" x="0" y="0" width="200" height="200" fill="#fff"></div>
+  <div
+    class="button"
+    #playButton
+    onclick="this.classList.toggle('active')"
+    (click)="toggleMusic()"
+  >
+  <div [@fadeInOut] *ngIf="resultVisible" class="replacement-icon" width="200" height="200">
+    <p-button label="Next"></p-button>
+  </div>
+    <div [@flyInOut] *ngIf="!resultVisible" class="bottom" x="0" y="0" width="200" height="200"></div>
+    <div  class="icon" width="200" height="200">
+      <div [@flyInOut] *ngIf="!resultVisible">
+        <div
+          class="middle left"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          fill="#fff"
+        ></div>
+        <div
+          class="middle right"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          fill="#fff"
+        ></div>
+      </div>
     </div>
     <div class="pointer"></div>
   </div>
-  <p-dropdown (onChange)="checkIfMatches()" [options]="championsLocal" [virtualScroll]="true" [virtualScrollItemSize]="38" [(ngModel)]="selectedChampion" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Champion">
+  <p-dropdown
+    (onChange)="checkIfMatches()"
+    [autofocusFilter]="true"
+    [options]="championsLocal"
+    [virtualScroll]="true"
+    [virtualScrollItemSize]="38"
+    [(ngModel)]="selectedChampion"
+    optionLabel="name"
+    [filter]="true"
+    [resetFilterOnHide] = "true"
+    filterBy="name"
+    [showClear]="true"
+    placeholder="Select a Champion"
+    #championDropdown
+  >
     <ng-template pTemplate="selectedItem">
-        <div class="flex align-items-center gap-2" *ngIf="selectedChampion">
-            <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px"/> -->
-            <div>{{ selectedChampion.name }}</div>
-        </div>
+      <div class="flex align-items-center gap-2" *ngIf="selectedChampion">
+        <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px"/> -->
+        <div>{{ selectedChampion.name }}</div>
+      </div>
     </ng-template>
     <ng-template let-champion pTemplate="item">
-        <div class="flex align-items-center gap-2">
-            <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px"/> -->
-            <div>{{ champion.name }}</div>
-        </div>
+      <div class="flex align-items-center gap-2">
+        <!-- <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px"/> -->
+        <div>{{ champion.name }}</div>
+      </div>
     </ng-template>
   </p-dropdown>
 </body>
-

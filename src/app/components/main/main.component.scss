@@ -32,6 +32,18 @@ body {
   transition: transform 500ms;
   width: 200px;
 }
+.replacement-icon {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.replacement-button {
+  height: 100px;
+  width: 150px;
+}
 .middle {
   background: rgb(206, 216, 223);
   height: 200px;

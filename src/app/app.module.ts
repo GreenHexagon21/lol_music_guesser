@@ -8,6 +8,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 
 import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -34,6 +35,7 @@ import { PlaybuttonComponent } from './components/parts/playbutton/playbutton.co
     MatSelectModule,
     MatInputModule,
     DropdownModule,
+    ButtonModule,
     FormsModule,
     ReactiveFormsModule
   ],

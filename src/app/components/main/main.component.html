@@ -1,4 +1,9 @@
-<body>
+<body
+  #body
+  class="background"
+  [style]="currentBackgroundStyle"
+>
+  <h2>{{ currentTitle }}</h2>
   <div class="controls">
     <div [@fadeInOut]="resultVisible ? 'in' : 'out'" class="replacement-icon">
       <p-button label="Next" (onClick)="nextChampion()"></p-button>

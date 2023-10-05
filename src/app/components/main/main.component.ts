@@ -25,31 +25,43 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       state('in', style({ opacity:1,transform: 'translateX(0)' })),
       state('out', style({ opacity:0,transform: 'translateX(-100%)' })),
       transition('out => in', [
-        animate('200ms 200ms')
+        animate('200ms 100ms')
       ]),
       transition('in => out', [
         animate(200)
       ])
-    ])
+    ]),
+
   ]
 })
 export class MainComponent implements OnInit{
   path = './assets/music/';
   ext = '.mp3'
+
   recentChamps:Champion[] = [];
+
   audio = new Audio();
+
   isPlaying:boolean = false;
+
   championsLocal:Champion[] = champions;
   selectedChampion:Champion;
+
   currentChampNumb:number;
   resultVisible:boolean = false;
   newChampionNeeded:boolean = false;
 
+  currentTitle = "Which champion's theme is this?";
 
+  currentBackgroundStyle = "background-image: url('./assets/img/Nunu.png')"
+  test = "'./assets/img/Ahri.png'"
+  test2= "'./assets/img/Nunu.png'"
+  backgroundPrefix = "background-image: url('./assets/img/"
+  backgroundSuffix = ".png')"
 
   @ViewChild("championDropdown", {static: false}) myDropDown: Dropdown
   @ViewChild("playButton") playButton: ElementRef
-
+  @ViewChild("body") body: ElementRef
 
   constructor(public utils: UtilsService) {
     this.championsLocal.sort((a, b) => a.name.localeCompare(b.name))
@@ -59,10 +71,15 @@ export class MainComponent implements OnInit{
 
   }
 
+  constructBackgroundStyle() {
+    this.currentBackgroundStyle = this.backgroundPrefix+champions[this.currentChampNumb-1].name+this.backgroundSuffix
+  }
+
   nextChampion() {
     this.pauseMusic();
     this.resultVisible = false;
     this.myDropDown.clear(null);
+    this.currentTitle = "Which champion's theme is this?";
 
   }
 
@@ -98,6 +115,8 @@ export class MainComponent implements OnInit{
       if(this.selectedChampion.name == champions[this.currentChampNumb-1].name) {
         console.log('Correct!')
         this.nextChampion();
+        this.constructBackgroundStyle();
+        this.currentTitle = 'Correct! The theme belongs to '+champions[this.currentChampNumb-1].name;
         this.generateNewChampion();
         this.playButton.nativeElement.classList.toggle('active');
         this.resultVisible = !this.resultVisible;

@@ -5,12 +5,18 @@ body {
   flex-direction: column;
   height: 100vh;
   margin: 0;
+  overflow: hidden;
 }
 .button {
   align-items: center;
   display: flex;
   justify-content: center;
 }
+.controls {
+  width: 200px;
+  height: 200px;
+}
+
 .bottom {
   background: #01bdd6;
   border-radius: 50%;
@@ -35,8 +41,8 @@ body {
 .replacement-icon {
   height: 200px;
   width: 200px;
-  position: absolute;
   display: flex;
+  position: fixed;
   justify-content: center;
   align-items: center;
 }

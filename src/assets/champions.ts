@@ -232,7 +232,7 @@ export const champions : Champion[] = [
     music:"",
   },
   {
-    name:"Orn",
+    name:"Ornn",
     picture:"",
     music:"",
   },

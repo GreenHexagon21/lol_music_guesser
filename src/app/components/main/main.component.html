@@ -1,9 +1,9 @@
 <body
   #body
   class="background"
-  [style]="currentBackgroundStyle"
+  [style.background-image]="testVariable"
 >
-  <h2>{{ currentTitle }}</h2>
+  <h1>{{ currentTitle }}</h1>
   <div class="controls">
     <div [@fadeInOut]="resultVisible ? 'in' : 'out'" class="replacement-icon">
       <p-button label="Next" (onClick)="nextChampion()"></p-button>
@@ -11,6 +11,7 @@
     <div
       [@flyInOut]="resultVisible ? 'out' : 'in'"
       class="button"
+      [style.pointer-events] = "resultVisible ? 'none' : 'auto'"
       #playButton
       onclick="this.classList.toggle('active')"
       (click)="toggleMusic()"
@@ -40,6 +41,8 @@
     </div>
   </div>
   <p-dropdown
+    [disabled]="resultVisible"
+    [@flyInOut]="resultVisible ? 'out' : 'in'"
     (onChange)="checkIfMatches()"
     [autofocusFilter]="true"
     [options]="championsLocal"

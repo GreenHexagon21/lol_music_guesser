@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import "primeng/resources/themes/lara-dark-teal/theme.css";
+@import "assets/themes/theme.css";
 @import "primeng/resources/primeng.css";
+@font-face {
+  font-family: 'BeaufortforLOL';
+  src: url('assets/fonts/BeaufortforLOL-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BeaufortforLOLMedium';
+  src: url('assets/fonts/BeaufortforLOL-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

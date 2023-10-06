@@ -1,3 +1,4 @@
+
 .background {
   align-items: center;
   display: flex;
@@ -7,16 +8,29 @@
   margin: 0;
   overflow: hidden;
   background-size: cover;
-  animation: image 2s infinite alternate;
+
+  //animation: image 2s infinite alternate;
+  transition: background-image 0.5s ease-in-out;
 }
-@keyframes image {
-  0% {
-    background-image: url('https://unsplash.it/600/600');
-  }
-  100% {
-    background-image: url('https://unsplash.it/601/601');
-  }
+
+h1 {
+  font-family: 'BeaufortforLOL';
+  font-size: 2.7vw;
+  text-shadow: 0.2vw 0.2vw 0.15vw rgba(0, 0, 0, 0.747);
 }
+
+p-dropdown {
+  font-family: 'BeaufortforLOLMedium';
+}
+
+// @keyframes image {
+//   0% {
+//     background-image: var(--current-bg);
+//   }
+//   100% {
+//     background-image: var(--previous-bg);
+//   }
+// }
 .background:before {
   content: '';
   width: 100%;
@@ -34,8 +48,13 @@
   height: 200px;
 }
 
+p-button {
+  background: #091428;
+  color: #C89B3C;
+}
+
 .bottom {
-  background: #01bdd6;
+  background: #091428;
   border-radius: 50%;
   box-shadow: 0 1px 2.2px rgba(0, 0, 0, 0.051),
     0 2.3px 5.3px rgba(0, 0, 0, 0.059), 0 4.4px 10px rgba(0, 0, 0, 0.06),
@@ -47,7 +66,7 @@
   width: 100px;
 }
 .button:active .bottom {
-  background: #1578e9;
+  background: #13284e;
 }
 .icon {
   height: 200px;
@@ -68,7 +87,7 @@
   width: 150px;
 }
 .middle {
-  background: rgb(206, 216, 223);
+  background: #C89B3C;
   height: 200px;
   position: absolute;
   width: 200px;
@@ -218,6 +237,7 @@
   position: absolute;
   -webkit-tap-highlight-color: transparent;
   width: 100px;
+  border: 0.3vw solid #C89B3C;
 }
 .active .icon {
   transform: rotate(-90deg);

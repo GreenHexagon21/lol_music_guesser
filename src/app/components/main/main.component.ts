@@ -41,9 +41,10 @@ export class MainComponent implements OnInit{
   recentChamps:Champion[] = [];
 
   audio = new Audio();
-  testVariable = 'url(./assets/img/Nunu.png)'
 
   isPlaying:boolean = false;
+
+  streakNumber = 0;
 
   championsLocal:Champion[] = champions;
   selectedChampion:Champion;
@@ -54,13 +55,15 @@ export class MainComponent implements OnInit{
 
   currentTitle = "Which champion's theme is this?";
 
-  currentBackgroundStyle = "background-image: url('./assets/img/Nunu.png')"
-  defaultBackground:"url('./assets/img/Nunu.png')"
+  defaultBackground = "url(./assets/img/Default.png)"
   currentBackground = "url(./assets/img/Ahri.png)"
-  image2 = "url(./assets/img/Nunu.png)"
-  image1Visible = true;
   backgroundPrefix = "url(./assets/img/"
   backgroundSuffix = ".png)"
+  visible: boolean = true;
+
+  showDialog() {
+      this.visible = true;
+  }
 
   @ViewChild("championDropdown", {static: false}) myDropDown: Dropdown
   @ViewChild("playButton") playButton: ElementRef
@@ -72,6 +75,9 @@ export class MainComponent implements OnInit{
 
   ngOnInit() {
 
+  }
+  setBackgroundToDefault() {
+    this.body.nativeElement.style.backgroundImage = this.defaultBackground;
   }
 
   changeBackroundImage() {
@@ -88,6 +94,7 @@ export class MainComponent implements OnInit{
     this.resultVisible = false;
     this.myDropDown.clear(null);
     this.currentTitle = "Which champion's theme is this?";
+    this.setBackgroundToDefault()
 
   }
 
@@ -129,8 +136,10 @@ export class MainComponent implements OnInit{
         this.currentTitle = 'Correct! The theme belongs to '+champions[this.currentChampNumb-1].name;
         this.generateNewChampion();
         this.resultVisible = !this.resultVisible;
+        this.streakNumber++;
       } else {
         console.log('Not correct')
+        this.streakNumber = 0;
       }
 
     }

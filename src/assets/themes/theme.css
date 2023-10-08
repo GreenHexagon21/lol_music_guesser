@@ -1638,8 +1638,8 @@
   }
 
   .p-selectbutton .p-button {
-    background: #071426;
-    border: 1px solid #0b213f;
+    background: #091428;
+    border: 1px solid #C89B3C;
     color: rgba(255, 255, 255, 0.87);
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
@@ -1649,7 +1649,7 @@
   }
   .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
     background: rgba(255, 255, 255, 0.03);
-    border-color: #0b213f;
+    border-color: #C89B3C;
     color: rgba(255, 255, 255, 0.87);
   }
   .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left,
@@ -1659,7 +1659,7 @@
   .p-selectbutton .p-button.p-highlight {
     background: #091428;
     border-color: #091428;
-    color: #1c2127;
+    color: #C89B3C;
   }
   .p-selectbutton .p-button.p-highlight .p-button-icon-left,
 .p-selectbutton .p-button.p-highlight .p-button-icon-right {
@@ -1897,9 +1897,9 @@
   }
 
   .p-button {
-    color: #1c2127;
+    color: #C89B3C;
     background: #091428;
-    border: 1px solid #091428;
+    border: 0.3vw solid #C89B3C;
     padding: 0.75rem 1.25rem;
     font-size: 1rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -1911,9 +1911,9 @@
     border-color: #4fe8d0;
   }
   .p-button:enabled:active {
-    background: #41e6cc;
-    color: #1c2127;
-    border-color: #41e6cc;
+    background: #005A82;
+    color: #C89B3C;
+    border-color: #091428;
   }
   .p-button.p-button-outlined {
     background-color: transparent;
@@ -4521,8 +4521,12 @@
     border-bottom-left-radius: 6px;
   }
   .p-dialog .p-dialog-footer button {
-    margin: 0 0.5rem 0 0;
-    width: auto;
+    color: #C89B3C;
+    background: #091428;
+    border: 0.3vw solid #C89B3C;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 6px;
   }
   .p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
     font-size: 2rem;

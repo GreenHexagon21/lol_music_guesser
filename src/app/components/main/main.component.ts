@@ -21,11 +21,21 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         animate(200)
       ])
     ]),
-    trigger('fadeInOut', [
+    trigger('flyInOutReverse', [
       state('in', style({ opacity:1,transform: 'translateX(0)' })),
       state('out', style({ opacity:0,transform: 'translateX(-100%)' })),
       transition('out => in', [
         animate('200ms 100ms')
+      ]),
+      transition('in => out', [
+        animate(200)
+      ])
+    ]),
+    trigger('fadeInOut', [
+      state('in', style({ opacity:1})),
+      state('out', style({ opacity:0})),
+      transition('out => in', [
+        animate('200ms')
       ]),
       transition('in => out', [
         animate(200)

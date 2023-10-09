@@ -9,9 +9,11 @@
           <span class="text-xl welcome-header font-bold">Welcome to the League of Legends champion theme guesser game!</span>
       </ng-template>
       <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         The game is simple, press the play button, listen, and see if you can guess which champion the music belongs to.
       </p>
+      <p class="disclaimer">
+        Disclaimer: This site is not associated with Riot Games, is completely unmonetized and non-commercial, also opensource. Do not hold the ownership to the images displayed nor the music played.
+     </p>
       <ng-template pTemplate="footer">
           <p-button (click)="visible = false" label="Ok" styleClass="p-button-text"></p-button>
       </ng-template>
@@ -20,10 +22,11 @@
 
 
   <h1 class="title">Your current streak is:</h1>
+  <div class="notif">❌</div>
   <h1 class="streakCounter">{{streakNumber}}</h1>
   <h1 class="title">{{ currentTitle }}</h1>
   <div class="controls">
-    <div [@fadeInOut]="resultVisible ? 'in' : 'out'" class="replacement-icon">
+    <div [@flyInOutReverse]="resultVisible ? 'in' : 'out'" class="replacement-icon">
       <p-button label="Next" (onClick)="nextChampion()"></p-button>
     </div>
     <div

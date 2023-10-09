@@ -37,6 +37,24 @@
   margin-block-end: 0.2vw;
 }
 
+.p-dropdown.p-component.p-dropdown-clearable {
+  min-width: 22vw;
+}
+p {
+  font-family: 'BeaufortforLOLMedium';
+  color: #CDFAFA;
+}
+
+.notif {
+  position: fixed;
+  top: 22vh;
+  font-size: 16vh;
+}
+
+.disclaimer {
+  font-size: 0.7rem;
+}
+
 p-dropdown {
   font-family: 'BeaufortforLOLMedium';
 }

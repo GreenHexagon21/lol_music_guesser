@@ -1948,8 +1948,8 @@
     border-color: transparent;
   }
   .p-button.p-button-text:enabled:hover {
-    background: rgba(94, 234, 212, 0.04);
-    color: #091428;
+    background: #005A82;
+    color: #C89B3C;
     border-color: transparent;
   }
   .p-button.p-button-text:enabled:active {

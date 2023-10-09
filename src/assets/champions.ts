@@ -157,7 +157,12 @@ export const champions : Champion[] = [
     music:"",
   },
   {
-    name:"Kyle c Moragna",
+    name:"Kyle",
+    picture:"",
+    music:"",
+  },
+  {
+    name:"Moragna",
     picture:"",
     music:"",
   },
@@ -242,7 +247,17 @@ export const champions : Champion[] = [
     music:"",
   },
   {
-    name:"Xayah & Rakan",
+    name:"Graves",
+    picture:"",
+    music:"",
+  },
+  {
+    name:"Rakan",
+    picture:"",
+    music:"",
+  },
+  {
+    name:"Xayah",
     picture:"",
     music:"",
   },

@@ -47,6 +47,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class MainComponent implements OnInit{
   path = './assets/music/';
   ext = '.mp3'
+  currentNotif = '❌'
 
   recentChamps:Champion[] = [];
 
@@ -143,6 +144,7 @@ export class MainComponent implements OnInit{
       if(this.selectedChampion.name == champions[this.currentChampNumb-1].name) {
         console.log('Correct!')
         this.changeBackroundImage();
+        this.currentNotif = '✔'
         this.currentTitle = 'Correct! The theme belongs to '+champions[this.currentChampNumb-1].name;
         this.generateNewChampion();
         this.resultVisible = !this.resultVisible;
@@ -150,6 +152,7 @@ export class MainComponent implements OnInit{
       } else {
         console.log('Not correct')
         this.streakNumber = 0;
+        this.currentNotif = '❌';
       }
 
     }

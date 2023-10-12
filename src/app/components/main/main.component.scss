@@ -21,6 +21,14 @@
   margin-block-end: 0;
 }
 
+@keyframes horizontal-shaking {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(5px) }
+  50% { transform: translateX(-5px) }
+  75% { transform: translateX(5px) }
+  100% { transform: translateX(0) }
+ }
+
 .welcome-header {
   font-family: 'BeaufortforLOL';
   font-size: 2vw;
@@ -40,6 +48,7 @@
 .p-dropdown.p-component.p-dropdown-clearable {
   min-width: 22vw;
 }
+
 p {
   font-family: 'BeaufortforLOLMedium';
   color: #CDFAFA;
@@ -49,6 +58,9 @@ p {
   position: fixed;
   top: 22vh;
   font-size: 16vh;
+  animation-name: horizontal-shaking;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
 }
 
 .disclaimer {
@@ -59,14 +71,6 @@ p-dropdown {
   font-family: 'BeaufortforLOLMedium';
 }
 
-// @keyframes image {
-//   0% {
-//     background-image: var(--current-bg);
-//   }
-//   100% {
-//     background-image: var(--previous-bg);
-//   }
-// }
 .background:before {
   content: '';
   width: 100%;

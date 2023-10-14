@@ -22,7 +22,7 @@
 
 
   <h1 class="title">Your current streak is:</h1>
-  <div class="notif">❌</div>
+  <div #status class="notif" [ngClass]="{animation:showAnimation}">{{currentNotif}}</div>
   <h1 class="streakCounter">{{streakNumber}}</h1>
   <h1 class="title">{{ currentTitle }}</h1>
   <div class="controls">

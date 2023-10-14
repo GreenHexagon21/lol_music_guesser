@@ -1,6 +1,6 @@
 import { UtilsService } from 'src/app/services/utils.service';
 import { champions } from './../../../assets/champions';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Champion } from 'src/app/shared/champion';
 import { Dropdown } from 'primeng/dropdown';
@@ -44,7 +44,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 
   ]
 })
-export class MainComponent implements OnInit{
+export class MainComponent implements OnInit, AfterViewInit{
   path = './assets/music/';
   ext = '.mp3'
   currentNotif = '❌'
@@ -56,6 +56,7 @@ export class MainComponent implements OnInit{
   isPlaying:boolean = false;
 
   streakNumber = 0;
+  showAnimation = false;
 
   championsLocal:Champion[] = champions;
   selectedChampion:Champion;
@@ -79,14 +80,21 @@ export class MainComponent implements OnInit{
   @ViewChild("championDropdown", {static: false}) myDropDown: Dropdown
   @ViewChild("playButton") playButton: ElementRef
   @ViewChild("body") body: ElementRef
+  @ViewChild("status") status: ElementRef
 
   constructor(public utils: UtilsService) {
     this.championsLocal.sort((a, b) => a.name.localeCompare(b.name))
   }
+  ngAfterViewInit(): void {
+    this.status.nativeElement.addEventListener('animationend', () => {
+      this.showAnimation = false;
+    });
+  }
 
   ngOnInit() {
-
   }
+
+
   setBackgroundToDefault() {
     this.body.nativeElement.style.backgroundImage = this.defaultBackground;
   }
@@ -110,6 +118,7 @@ export class MainComponent implements OnInit{
   }
 
   playMusic() {
+      this.showAnimation = false;
       this.audio.play();
       this.isPlaying = true;
       this.playButton.nativeElement.classList.add('active');
@@ -146,11 +155,13 @@ export class MainComponent implements OnInit{
         this.changeBackroundImage();
         this.currentNotif = '✔'
         this.currentTitle = 'Correct! The theme belongs to '+champions[this.currentChampNumb-1].name;
+        this.showAnimation = true;
         this.generateNewChampion();
         this.resultVisible = !this.resultVisible;
         this.streakNumber++;
       } else {
         console.log('Not correct')
+        this.showAnimation = true;
         this.streakNumber = 0;
         this.currentNotif = '❌';
       }

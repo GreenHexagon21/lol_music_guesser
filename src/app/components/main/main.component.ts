@@ -141,7 +141,6 @@ export class MainComponent implements OnInit, AfterViewInit{
     this.newChampionNeeded = true;
     let src = this.path+champions[this.currentChampNumb-1].name+this.ext;
     this.audio.src = src;
-    console.log(src);
     this.audio.load();
   }
 

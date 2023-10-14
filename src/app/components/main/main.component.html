@@ -15,14 +15,14 @@
         Disclaimer: This site is not associated with Riot Games, is completely unmonetized and non-commercial, also opensource. Do not hold the ownership to the images displayed nor the music played.
      </p>
       <ng-template pTemplate="footer">
-          <p-button (click)="visible = false" label="Ok" styleClass="p-button-text"></p-button>
+          <p-button (click)="visible = false" label="Understood" styleClass="p-button-text"></p-button>
       </ng-template>
   </p-dialog>
 
 
 
   <h1 class="title">Your current streak is:</h1>
-  <div #status class="notif" [ngClass]="{animation:showAnimation}">{{currentNotif}}</div>
+  <div #status class="notif" [ngClass]="{checkmark:'reveal-animation',cross:'shaking-animation',none:'notif'}[currentAnimation]">{{currentNotif}}</div>
   <h1 class="streakCounter">{{streakNumber}}</h1>
   <h1 class="title">{{ currentTitle }}</h1>
   <div class="controls">
@@ -62,6 +62,8 @@
     </div>
   </div>
   <p-dropdown
+    (onShow)="setButtonNotVisible()" 
+    (onHide)="setButtonVisible()"
     [disabled]="resultVisible"
     [@flyInOut]="resultVisible ? 'out' : 'in'"
     (onChange)="checkIfMatches()"
@@ -91,4 +93,6 @@
       </div>
     </ng-template>
   </p-dropdown>
+  <p-button 
+  [style.pointer-events] = "!isButtonShowing || resultVisible ? 'none' : 'auto'" [style.opacity] = "!isButtonShowing || resultVisible? '0' : '100%'" class="bottom-button"  label="I give up" (onClick)="giveUp()"></p-button>
 </body>

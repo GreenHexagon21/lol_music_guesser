@@ -1,4 +1,6 @@
-export const champions = [
+import { Champion } from "src/app/shared/champion";
+
+export const champions : Champion[] = [
   {
     name:"Briar",
     picture:"",
@@ -155,7 +157,12 @@ export const champions = [
     music:"",
   },
   {
-    name:"Kyle c Moragna",
+    name:"Kyle",
+    picture:"",
+    music:"",
+  },
+  {
+    name:"Morgana",
     picture:"",
     music:"",
   },
@@ -230,7 +237,7 @@ export const champions = [
     music:"",
   },
   {
-    name:"Orn",
+    name:"Ornn",
     picture:"",
     music:"",
   },
@@ -240,7 +247,17 @@ export const champions = [
     music:"",
   },
   {
-    name:"Xayah & Rakan",
+    name:"Graves",
+    picture:"",
+    music:"",
+  },
+  {
+    name:"Rakan",
+    picture:"",
+    music:"",
+  },
+  {
+    name:"Xayah",
     picture:"",
     music:"",
   },
@@ -473,17 +490,7 @@ export const champions = [
     name:"Elise",
     picture:"",
     music:"",
-  },
-  {
-    name:"Draven",
-    picture:"",
-    music:"",
-  },
-  {
-    name:"Nunu",
-    picture:"",
-    music:"",
-  },
+  }
 
 
 

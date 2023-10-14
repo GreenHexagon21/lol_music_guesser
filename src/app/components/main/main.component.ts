@@ -48,12 +48,14 @@ export class MainComponent implements OnInit, AfterViewInit{
   path = './assets/music/';
   ext = '.mp3'
   currentNotif = '❌'
+  currentAnimation = 'none'
 
   recentChamps:Champion[] = [];
 
   audio = new Audio();
 
   isPlaying:boolean = false;
+  isButtonShowing = true;
 
   streakNumber = 0;
   showAnimation = false;
@@ -87,11 +89,14 @@ export class MainComponent implements OnInit, AfterViewInit{
   }
   ngAfterViewInit(): void {
     this.status.nativeElement.addEventListener('animationend', () => {
-      this.showAnimation = false;
+      this.currentAnimation = 'none'
     });
   }
 
   ngOnInit() {
+    if(!this.newChampionNeeded) {
+      this.generateNewChampion();
+    }
   }
 
 
@@ -140,12 +145,24 @@ export class MainComponent implements OnInit, AfterViewInit{
     this.audio.load();
   }
 
+  setButtonNotVisible() {
+    this.isButtonShowing = false
+  } 
+  setButtonVisible() {
+    this.isButtonShowing = true
+  }
+
 
   toggleMusic() {
-    if(!this.newChampionNeeded) {
-      this.generateNewChampion();
-    }
     this.isPlaying?this.pauseMusic():this.playMusic()
+  }
+
+  giveUp() {
+    this.streakNumber = 0;
+    this.currentTitle = 'This theme music belongs to '+champions[this.currentChampNumb-1].name;
+    this.changeBackroundImage();
+    this.generateNewChampion();
+    this.resultVisible = !this.resultVisible;
   }
 
   checkIfMatches() {
@@ -155,13 +172,14 @@ export class MainComponent implements OnInit, AfterViewInit{
         this.changeBackroundImage();
         this.currentNotif = '✔'
         this.currentTitle = 'Correct! The theme belongs to '+champions[this.currentChampNumb-1].name;
-        this.showAnimation = true;
+        this.currentAnimation = "checkmark";
         this.generateNewChampion();
         this.resultVisible = !this.resultVisible;
         this.streakNumber++;
       } else {
         console.log('Not correct')
-        this.showAnimation = true;
+        
+        this.currentAnimation = "cross";
         this.streakNumber = 0;
         this.currentNotif = '❌';
       }

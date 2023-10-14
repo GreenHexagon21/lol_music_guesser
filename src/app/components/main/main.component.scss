@@ -39,6 +39,13 @@
   100% { transform: translateX(0);opacity: 0 }
  }
 
+ @keyframes horizontal-reveal {
+  0% { transform: translateY(100%);opacity: 0; }
+  45% { transform: translateY(0);opacity: 1; }
+  90% { transform: translateX(0);opacity: 1; }
+  100% { transform: translateX(0);opacity: 0 }
+ }
+
 .welcome-header {
   font-family: 'BeaufortforLOL';
   font-size: 2vw;
@@ -63,17 +70,29 @@ p {
   font-family: 'BeaufortforLOLMedium';
   color: #CDFAFA;
 }
+p-button {
+  font-family: 'BeaufortforLOLMedium';
+}
 
 .notif {
   opacity: 0;
   position: fixed;
   top: 22vh;
   font-size: 16vh;
+  animation-duration: 1.5s;
+  color: rgb(66, 204, 2);
 }
 
-.animation {
+.bottom-button {
+  margin-top: 3vh;
+  z-index: 0;
+}
+
+.shaking-animation {
   animation-name: horizontal-shaking;
-  animation-duration: 1.5s;
+}
+.reveal-animation {
+  animation-name: horizontal-reveal;
 }
 
 .disclaimer {
@@ -290,7 +309,7 @@ p-dropdown {
   position: absolute;
   -webkit-tap-highlight-color: transparent;
   width: 100px;
-  border: 0.3vw solid #C89B3C;
+  border: 0.2rem solid #C89B3C;
 }
 .active .icon {
   transform: rotate(-90deg);
